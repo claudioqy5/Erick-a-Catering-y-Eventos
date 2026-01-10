@@ -82,7 +82,7 @@
 
         <div class="card reveal reveal-scale reveal-delay-2">
           <div class="image-wrapper">
-            <img src="../assets/cubiertos.jpg">
+            <img src="../assets/cubiertos.JPG">
             <div class="overlay">
               <h3>Cubiertos</h3>
               <p>Estilo sofisticado.</p>
