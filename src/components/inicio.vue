@@ -11,8 +11,8 @@
 
       <header class="header" :class="{ scrolled: isScrolled }">
         <div class="logo">
-          <a href="#" style="color: #ffe045; text-decoration: none;">
-            <p><span class="span1">Erick'a </span><span class="span2"> C & E</span></p>
+          <a href="#" style="color: #CFB53C; text-decoration: none;">
+            <img src="../assets/logo.png" alt="Logo" style="height: 100px; vertical-align: middle; margin-right: 8px;">
           </a>
         </div>
 
@@ -39,14 +39,16 @@
 
 
       <div class="titulo reveal reveal-scale">
-        <p class="a1">Erick'a</p>
-        <span class="divisor"></span>
         <div class="a2">
           <p>Catering</p>
           <p>&</p>
           <p>Eventos</p>
         </div>
+        <span class="divisor"></span>
+        <p class="a1">Erick'a</p>
       </div>
+      
+        <p class="titulo reveal reveal-scale" style="width:max-content; font-size: 30px; font-weight: lighter; padding: 0; margin-top: 0;">Todo lo que tu evento necesita, en un solo lugar</p>
 
       <button @click="showModal = true" class="quote-btn reveal reveal-scale">
         Cotiza Ahora
@@ -105,7 +107,7 @@
     <!-- GALERÍA -->
     <section id="galeria" class="gallery-masonry reveal">
       <div class="gallery-header">
-        <h2>Eventos que <span style="color:#ffe045;font-size:4rem">Inspiran</span></h2>
+        <h2>Eventos que <span style="color:#CFB53C;font-size:4rem">Inspiran</span></h2>
         <p class="gallery-subtitle">
           Momentos únicos creados con pasión y detalle.
         </p>
@@ -158,7 +160,7 @@
 
     <section class="reseñas" id="reseñas">
       <h2 style="font-size: 3.5rem; text-align: center;">Lo que dicen <span
-          style="color:#ffe045;font-size:3rem">NUESTROS CLIENTES</span></h2>
+          style="color:#CFB53C;font-size:3rem">NUESTROS CLIENTES</span></h2>
 
       <div class="parent">
         <div class="div1 review">
@@ -234,7 +236,7 @@
           <h2 style="font-size: 4rem;">¿Quiénes somos?</h2>
 
           <p class="about-description">
-            En <span style="color:#ffe045;font-size:2rem;font-weight:500;">
+            En <span style="color:#CFB53C;font-size:2rem;font-weight:500;">
               Erick'a Catering & Eventos
             </span>
             contamos con varios años de experiencia brindando servicios de catering y organización de eventos,
@@ -421,7 +423,7 @@ onUnmounted(() => {
 
 <style scoped>
 .typing {
-  color: #ffe045;
+  color: #CFB53C;
   font-size: 4rem;
   white-space: nowrap;
 }
@@ -479,30 +481,80 @@ onUnmounted(() => {
 
 /* Todos tus estilos anteriores (header, hero, services, etc.) se mantienen iguales */
 .quote-btn {
-  /*background blur */
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid #fcf7dd;
-  color: white;
+  /* Mantengo el glassmorphism base */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(252, 247, 221, 0.4);
+  color: #ffedd3;
+  /* color inicial claro como en el ejemplo */
   padding: 0.8rem 2rem;
   border-radius: 20px;
   font-size: 1.5rem;
   font-weight: lighter;
+  /* lighter pero no demasiado fino */
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s ease;
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  z-index: 1;
+}
+
+.quote-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #CFB53C;
+  transition: width 0.5s ease;
+  z-index: 2;
+}
+
+.quote-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: #CFB53C;
+  transition: height 0.4s ease;
+  z-index: -1;
 }
 
 .quote-btn:hover {
-  transform: translateY(-1px);
-  border: 1px solid #ffe045;
-  color: #ffe045;
+  color: #1e1e2b;
+  /* color oscuro al hover como en el ejemplo */
+  transition-delay: 0.5s;
 }
 
-.quote-icon {
-  width: 28px;
-  height: 28px;
+.quote-btn:hover::before {
+  width: 100%;
+}
+
+.quote-btn:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+}
+
+/* Para que el texto quede encima del fondo que se expande */
+.quote-btn:hover {
+  transition: 0.5s;
+  color: #1e1e2b !important;
+  font-weight: 300;
+}
+
+/* Opcional: efecto más suave en mobile / menos agresivo */
+@media (max-width: 768px) {
+  .quote-btn {
+    font-size: 1.25rem;
+    padding: 0.8rem 1.8rem;
+  }
 }
 
 /* Header */
@@ -531,11 +583,7 @@ onUnmounted(() => {
 
 }
 
-.logo {
-  display: flex;
-  flex-direction: row;
-  color: #ffe045;
-}
+
 
 .span1 {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -567,7 +615,7 @@ onUnmounted(() => {
 }
 
 .nav .btn:hover {
-  background-color: #ffe045;
+  background-color: #CFB53C;
   color: rgb(0, 0, 0);
 }
 
@@ -595,20 +643,20 @@ onUnmounted(() => {
 .hamburger span {
   width: 28px;
   height: 3px;
-  background: #ffe045;
+  background: #CFB53C;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
 
 /* ---------- MOBILE ---------- */
-@media (max-width: 768px) { 
- 
+@media (max-width: 768px) {
+
 
   .typing {
-  color: #ffe045;
-  font-size: 2rem;
-  white-space: nowrap;
-}
+    color: #CFB53C;
+    font-size: 2rem;
+    white-space: nowrap;
+  }
 
   .header {
     padding: 14px 24px;
@@ -668,9 +716,9 @@ onUnmounted(() => {
 }
 
 .nav a:hover {
-  color: #ffe045;
+  color: #CFB53C;
   font-size: 25px;
-  font-weight: bolder;
+  font-weight: 300;
   transition: all 0.3s ease;
 }
 
@@ -860,9 +908,10 @@ onUnmounted(() => {
 /* Responsive fino */
 @media (max-width: 768px) {
 
-   .header{
+  .header {
     height: 9%;
   }
+
   .services {
     padding: 4rem 1rem;
   }
@@ -1492,7 +1541,7 @@ onUnmounted(() => {
 .footer-contact h4,
 .footer-links h4,
 .footer-social h4 {
-  color: #ffe045;
+  color: #CFB53C;
   font-size: 1.4rem;
   margin-bottom: 1.2rem;
   font-weight: 600;
@@ -1520,7 +1569,7 @@ onUnmounted(() => {
 
 .footer-contact a:hover,
 .footer-links a:hover {
-  color: #ffe045;
+  color: #CFB53C;
 }
 
 .whatsapp-link {
@@ -1540,7 +1589,7 @@ onUnmounted(() => {
 }
 
 .social-icons a:hover {
-  color: #ffe045;
+  color: #CFB53C;
 }
 
 .footer-bottom {
@@ -1559,7 +1608,7 @@ onUnmounted(() => {
 }
 
 .footer-bottom a:hover {
-  color: #ffe045;
+  color: #CFB53C;
 }
 
 /* Responsive */
@@ -1667,7 +1716,7 @@ onUnmounted(() => {
 .about-btn {
   width: fit-content;
   padding: 14px 34px;
-  background: #ffe045;
+  background: #CFB53C;
   color: #000;
   border-radius: 40px;
   font-weight: 600;
@@ -1676,7 +1725,7 @@ onUnmounted(() => {
 }
 
 .about-btn:hover {
-  background: #ffd000;
+  background: #CFB53C;
   transform: translateY(-3px);
 }
 
