@@ -48,7 +48,7 @@
         <p class="a1">Erick'a</p>
       </div>
       
-        <p class="titulo reveal reveal-scale" style="width:max-content; font-size: 30px; font-weight: lighter; padding: 0; margin-top: 0;">Todo lo que tu evento necesita, en un solo lugar</p>
+        <p class="eslogan">Todo lo que tu evento necesita, en un solo lugar</p>
 
       <button @click="showModal = true" class="quote-btn reveal reveal-scale">
         Cotiza Ahora
@@ -422,6 +422,23 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+
+.eslogan {
+  color: #CFB53C;
+  font-size: clamp(16px, 3.5vw, 25px);
+  font-weight: 300;
+  margin-top: 0;
+  padding: 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .eslogan {
+    line-height: 1.3;
+  }
+}
+
 .typing {
   color: #CFB53C;
   font-size: 4rem;
