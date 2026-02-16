@@ -782,7 +782,7 @@ onUnmounted(() => {
   font-weight: lighter;
   margin: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
 }
 
 .a2 p {
@@ -793,7 +793,7 @@ onUnmounted(() => {
   margin: 0;
   padding: 0;
   line-height: 1;
-  text-align: left;
+  text-align: right;
 }
 
 /* =============================
